@@ -13,6 +13,8 @@ const userRouter = require('./router/user')
 const cors = require('cors')
 // 导入并使用文章分类路由模块
 const artCateRouter = require('./router/artcate')
+// 导入并使用文章分类路由模块
+const artListRouter = require('./router/artlist')
 // 导入并使用文章路由模块
 const articleRouter = require('./router/article')
 app.use(cors())
@@ -29,6 +31,8 @@ app.use('/api', userRouter)
 app.use('/my', userinfoRouter)
 // 为文章分类的路由挂载统一的访问前缀 /my/article
 app.use('/my/article', artCateRouter)
+// 为文章分类的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', artListRouter)
 // 为文章的路由挂载统一的访问前缀 /my/article
 app.use('/my/article', articleRouter)
 // 托管静态资源文件
@@ -36,4 +40,4 @@ app.use('/uploads', express.static('./uploads'))
 // 错误中间件
 app.use(require("./error/error"))
 // 
-app.listen(3007, () => console.log('api server runnning at http://127.0.0.1:30007'));
+app.listen(80, () => console.log('api server runnning at http://127.0.0.1:30007'));
