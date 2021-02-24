@@ -40,4 +40,4 @@ app.use('/uploads', express.static('./uploads'))
 // 错误中间件
 app.use(require("./error/error"))
 // 
-app.listen(80, () => console.log('api server runnning at http://127.0.0.1:30007'));
+app.listen(3002, () => console.log('api server runnning at http://127.0.0.1:30007'));
