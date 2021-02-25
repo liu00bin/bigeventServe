@@ -2,10 +2,11 @@
 const db = require('../db/index')
 // 获取文章列表的处理函数
 exports.getArtList=(req,res)=>{
-    const sql='select * from ev_articles right join ev_article_cate on ev_articles.cate_id=ev_article_cate.Id where ev_articles.is_delete="0" and ev_article_cate.is_delete="0"'
+    // const sql='select * from ev_articles right join ev_article_cate on ev_articles.cate_id=ev_article_cate.Id where ev_articles.is_delete="0" and ev_article_cate.is_delete="0"'
+    const sql=`SELECT * FROM ev_article_cate JOIN ev_articles ON ( ev_article_cate.Id= ev_articles.cate_id) WHERE ev_articles.is_delete="0"`
     db.query(sql,(err, results)=>{
         if (err) return res.cc(err)
-        // console.log(results);
+        console.log(results);
         res.send({
             status: 0,
             message: '获取文章分类列表成功！',
